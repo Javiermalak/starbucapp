@@ -1,0 +1,197 @@
+$G_DD: #222831;
+$G_DL: #393E46;
+$G_LD: #00ADB5;
+$G_LL: #EEEEEE;
+
+
+$T_E: #888;
+$T_L: #666;
+$T_G: #444;
+$T_D: #222;
+$T_B: #111;
+
+
+//Contenedor general
+.container
+{
+  background-color: $G_DL;
+  padding: .5em;
+  height: 100%;
+  position: relative;
+
+  &.flex
+  {
+    display: flex;
+
+    &.row
+    {
+      flex-direction: row;
+    }
+
+    &.column
+    {
+      flex-direction: column;
+    }
+
+    &.center
+    {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// Formulario
+.form
+{
+  position: relative;
+  margin: 1em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  background-color: $G_LL;
+  border-radius: 4px;
+
+  >.form-header
+  {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-100%);
+    padding: 1.5em;
+    background-color: $G_DD;
+    color: $G_LL;
+    border-radius: 8px 8px 0 0;
+
+    >span
+    {
+      white-space: nowrap;
+      font-size: 1.4em;
+    }
+  }
+
+  .button
+  {
+    height: 3em;
+    line-height: 3em;
+    margin-top: 1em;
+    font-weight: 600;
+    position: relative;
+    color: $G_DD;
+    background-color: $G_LD;
+    border-radius: 4px;
+  }
+}
+
+//Boton de back
+  // contenedor relativo
+    // .back
+      // img
+.back
+{
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  height: 2em;
+  width: 2em;
+  background-color: $G_DD;
+  box-shadow: 1px 1px 6px 1px $T_B;
+  border-radius: 50%;
+
+  >img
+  {
+    transform: translateX(-1px);
+    height:  2em;
+    vertical-align: middle;
+  }
+}
+
+
+.input
+{
+  display: flex;
+  position: relative;
+  padding-top: 1.25em;
+  margin: .5em;
+  transition: all .3s;
+
+
+  >img
+  {
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    vertical-align: middle;
+    padding-right: .2em;
+
+    ~ label
+    {
+      left: 2.05em;
+    }
+  }
+
+  >input
+  {
+    border: none;
+    border-bottom: 1px solid grey;
+    width: 100%;
+    height: 2em;
+    padding-left: .25em;
+    background-color: transparent;
+
+    &:focus~label,
+    &:valid~label
+    {
+      top: .15em; left: -.05em;
+
+      >span
+      {
+        font-size: .7em;
+      }
+    }
+
+    &.masked
+    {
+      text-align: right;
+      padding-right: .25em;
+    }
+
+    &.action
+    {
+      ~ span
+      {
+        >img
+        {
+          height: 1.5em;
+          width: 1.5em;
+          vertical-align: middle;
+
+          &.link
+          {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  >label
+  {
+    transition: inherit;
+    position: absolute;
+    top: 1.5em;
+    left: .25em;
+    text-align: left;
+
+    > span
+    {
+      transition: inherit;
+      vertical-align: middle
+    }
+  }
+
+  >span
+  {
+    line-height: 2em;
+  }
+}

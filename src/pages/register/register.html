@@ -1,0 +1,35 @@
+<div class="container flex column center register">
+  <div class="back" (click)="volver()">
+    <img src="../../assets/icon/back.svg" alt="back">
+  </div>
+  <form class="form" [formGroup]="Form" #FormId>
+    <div class="form-header">
+        <span>Nuevo miembro</span>
+    </div>
+    <div class="input">
+      <input id="nombre" name="nombre" type="text" required autocomplete="off" formControlName="nombre"/>
+      <label for="nombre"><span>Nombre(s)</span></label>
+    </div>
+    <div class="input">
+        <input id="Apellido" name="Apellido" type="text" required autocomplete="off" formControlName="apellido"/>
+        <label for="Apellido"><span>Apellido(s)</span></label>
+    </div>
+    <div class="input">
+      <img src="../../assets/icon/key{{testP()}}.svg" alt="icon">
+      <input id="contra" name="contra" type="password" required autocomplete="off" formControlName="contra"/>
+      <label for="contra"><span>Contraseña</span></label>
+    </div>
+    <div class="input">
+        <img src="../../assets/icon/account_circle{{testM()}}.svg" alt="icon">
+        <input class="masked" id="correo" name="correo" type="text" placeholder="correo" required autocomplete="off" formControlName="correo"/>
+        <span>@ucol.mx</span>
+    </div>
+    <ion-item class="select">
+        <ion-label>Facultad</ion-label>
+        <ion-select formControlName="plantel">
+          <ion-option *ngFor="let plantel of planteles" value="{{plantel.pl_id}}">{{plantel.pl_nombre}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <button class="button" [disabled]="Form.invalid" (click)="registrar()">Continuar</button>
+  </form>
+</div>

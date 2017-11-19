@@ -1,0 +1,28 @@
+<div class="container flex column center login">
+  <div class="back" (click)="volver()">
+    <img src="../../assets/icon/back.svg" alt="back">
+  </div>
+  <div class="form">
+    <div class="form-header">
+        <span>Ingreso de Credenciales</span>
+    </div>
+    <div class="input" *ngIf="!onPass">
+      <img src="../../assets/icon/account_circle{{ isCorreo(correo) }}.svg" alt="correo icon" />
+      <input id="correo" name="correo" type="text" required placeholder="example" class="masked" [(ngModel)]="correo" autocomplete="off" (keypress)="reset()"/>
+      <span>{{host}}</span>
+    </div>
+    <div class="input password" *ngIf="onPass">
+      <img src="../../assets/icon/key{{ isContra(contra) }}.svg" alt="contraseña icon" />
+      <input id="contra" name="contra" type="{{ viewPass ? 'text' : 'password' }}" class="action" required [(ngModel)]="contra" autocomplete="off" (keypress)="reset()"/>
+      <label for="contra"><span>Contraseña</span></label>
+      <span>
+        <img (click)=" viewPass = !viewPass " src="../../assets/icon/eye{{ viewPass ? '_valid' : '' }}.svg" alt="contraseña icon" class="link"/>
+      </span>
+    </div>
+    <span class="notFound" *ngIf="error">Error en la identifación </span>
+    <span class="notFound" *ngIf="notFound" (click)="register()">No existe tu cuenta ¿Registrarse? </span>
+    <div class="btn-ctn {{ isCorreo(correo) ||  isContra(contra)  }} {{notFound || error}}">
+      <button class="button animated {{  isCorreo(correo) ||  isContra(contra)  ? 'bounceInUp' : 'fadeOut'}} " (click)="onPass ? login() : exists()">{{ searching ? 'Buscando...' : onPass ? 'Ingresar' : 'Continuar' }}</button>
+    </div>
+  </div>
+</div>

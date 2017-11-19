@@ -1,0 +1,46 @@
+.login
+{
+  .notFound
+  {
+    color: rgb(240, 40, 40) !important;
+    font-size: .9em;
+    text-align: right;
+    cursor: pointer;
+  }
+
+  .form
+  {
+    >.input
+    {
+      &:not(.password)
+      {
+        padding: .75em 0;
+      }
+    }
+
+    >.btn-ctn
+    {
+      transition: all .3s;
+      height: 0;
+      overflow: hidden;
+
+      >button
+      {
+        margin: 0;
+        width: 100%;
+      }
+    }
+
+    >.btn-ctn._valid
+    {
+      height: 3em;
+      overflow: visible;
+    }
+
+    >.btn-ctn._valid.true
+    {
+      margin-top: 1em;
+    }
+  }
+}
+
